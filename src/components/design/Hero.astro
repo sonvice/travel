@@ -1,0 +1,19 @@
+---
+import {heroImg} from '../../assets';
+import Button from '../Button.astro';
+import { arrowRight } from '../../assets';
+---
+
+<section class="hero" id="home">
+    <div class="hero__box container">
+        <div class="hero__img | rounded hidden">
+            <img src={heroImg.src} alt="Chicos fuera de un coche carabana"/>
+            
+        </div>
+        <div class="hero__text | text-white flow">
+            <h1 class="lr-animations">Discover the best lovely places</h1>
+            <p class="lr-paragraph">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p>
+            <Button class:list={'fadeInUp btn-yellow'} text="Trip a plan" icon={arrowRight}/>
+        </div>
+    </div>
+</section>

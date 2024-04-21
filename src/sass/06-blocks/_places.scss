@@ -1,0 +1,75 @@
+@use '../01-abstracts/' as b;
+
+.places{
+
+    &__explore{
+        display: grid;
+        gap: var(--space-m);
+        align-items: center;
+        justify-items: center;
+        @include b.breakpoint(md){
+            grid-template-columns: 1fr 1fr;
+        }
+        &::after{
+            content: '';
+            position: absolute;
+            left: -25%;
+            right: 0;
+            bottom: 0;
+            top: 60%;
+            z-index: -1;
+            background-image: url('../assets/places/degradado.webp');
+            background-size: cover;
+            background-position: center center;
+            width: 982px;
+            height: auto;
+            @include b.breakpoint(md){
+                left: 10rem;
+                top: 30rem;
+            }
+            @include b.breakpoint(lg){
+                left: 20rem;
+             
+            }
+        }
+    }
+
+
+
+    &__nubes{
+        bottom: -5rem;
+        @include b.breakpoint(md){
+            bottom: -6rem;
+        }
+    }
+
+    &__explore-text{
+        --flow-space:var(--space-m);
+        margin-top: 8rem;
+        flex-grow: 1;
+        @include b.breakpoint(md){
+            margin-top: 0;
+        }
+
+        img{
+            top: -5rem;
+        }
+    }
+
+    &__explore-text{
+        h2{
+            --delay:.2s;
+        }
+        p{
+            --delay:.6s;
+        }
+        ul{
+            --delay:1s;
+            --gutter:var(--space-l);
+            @include b.breakpoint(lg){
+                --gutter:var(--space-xl);
+            }
+        }
+    }
+}
+

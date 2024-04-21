@@ -1,0 +1,33 @@
+.hero{
+    margin-top: 9rem;
+    &__box{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        grid-template-areas: 'hero';
+       align-items: center;
+       overflow: hidden;
+    }
+    &__img{
+        grid-area: hero;
+        height: 100%;
+        position: relative;
+        z-index: -1;
+        &::before{
+            content: '';
+            background: linear-gradient(to left, rgba(252,252,252,0) 0%, rgba(18,43,39,.8) 100%);
+            grid-area: hero;
+            position: absolute;
+            inset: 0;
+            
+        }
+        & img{
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+    &__text{
+        --delay:1.5s;
+        grid-area: hero;
+        padding: var(--space-l);
+    }
+}

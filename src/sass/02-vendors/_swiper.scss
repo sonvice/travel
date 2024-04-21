@@ -1,0 +1,18 @@
+@use '../01-abstracts/' as b;
+
+.swiper-pagination{
+    --swiper-pagination-top:var(--space-xs);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    @include b.breakpoint(sm){
+        display: none;
+    }
+}
+
+.swiper-pagination-bullet-active{
+    --swiper-pagination-bullet-width: var(--space-s);
+    --swiper-pagination-bullet-height: var(--space-s);
+    --swiper-pagination-color: var(--color-green);
+}

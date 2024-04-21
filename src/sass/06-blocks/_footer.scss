@@ -1,0 +1,40 @@
+@use '../01-abstracts/' as b;
+
+.footer{
+    &__box{
+        --gutter:var(--space-xl);
+        @include b.breakpoint(lg){
+            --horizontal-alignment: space-between;
+            --gutter:var(--space-3xl);
+            
+        }
+    }
+    &__logo{
+        max-width: 16ch;
+        & p{
+            font-family: var(--ff-montserrat);
+        }
+    }
+    &__social{
+        --gutter:var(--space-s);
+    }
+    &__links{
+        --flow-space:var(--space-2xs);
+        --gutter:var(--space-2xl);
+        --vertical-alignment:start;
+        @include b.breakpoint(lg){
+            --horizontal-alignment: start;
+            
+        }
+
+        & a:hover{
+            transition: .3s ease;
+            color: var(--color-yellow);
+            text-decoration: underline;
+        }
+    }
+
+    &__copy{
+        border-top: 1px solid hsl(var(--color-greenLightHsl), 0.5);
+    }
+}

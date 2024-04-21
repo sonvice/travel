@@ -1,0 +1,60 @@
+/* @link https://utopia.fyi/type/calculator?c=320,16,1.2,1200,18,1.333,5,2,&s=0.75|0.5|0.25,1.5|2|3|4|6,s-l&g=s,l,xl,12 */
+
+/* Typography */
+$text-sizes:(
+     /* size -2: 11.1111px → 10.1301px */
+  "size--2": clamp(0.6331rem, 0.7167rem + -0.1115vi, 0.6944rem),
+  /* size--1:  13.3333px → 13.5034px  */
+  "size--1": clamp(0.8333rem, 0.8295rem + 0.0193vi, 0.844rem),
+  /* size :0 16px → 18px  */
+  "size-0": clamp(1rem, 0.9545rem + 0.2273vi, 1.125rem),
+  /* size 1: 19.2px → 23.994px */
+  "size-1": clamp(1.2rem, 1.091rem + 0.5448vi, 1.4996rem),
+  /* size 2: 23.04px → 31.984px */
+  "size-2": clamp(1.44rem, 1.2367rem + 1.0164vi, 1.999rem),
+  /* size 3: 27.648px → 42.6347px */
+  "size-3": clamp(1.728rem, 1.3874rem + 1.703vi, 2.6647rem),
+  /* size 4: 33.1776px → 56.832px */
+  "size-4": clamp(2.0736rem, 1.536rem + 2.688vi, 3.552rem),
+  /* size 5: 39.8131px → 75.7571px */
+  "size-5": clamp(2.4883rem, 1.6714rem + 4.0845vi, 4.7348rem),
+);
+
+
+/* Space */
+$spaces:(
+    "space-auto":auto,
+    "space-0":0,
+  /* Space 3xs: 4px → 5px */
+  "space-3xs":  clamp(0.25rem, 0.2273rem + 0.1136vi, 0.3125rem),
+  /* Space 2xs: 8px → 10px */
+  "space-2xs": clamp(0.5rem, 0.4545rem + 0.2273vi, 0.625rem),
+  /* Space xs: 12px → 15px */
+  "space-xs": clamp(0.75rem, 0.6818rem + 0.3409vi, 0.9375rem),
+  /* Space s: 16px → 20px */
+  "space-s": clamp(1rem, 0.9091rem + 0.4545vi, 1.25rem),
+  /* Space m: 24px → 30px */
+  "space-m": clamp(1.5rem, 1.3636rem + 0.6818vi, 1.875rem),
+  /* Space l: 32px → 40px */
+  "space-l": clamp(2rem, 1.8182rem + 0.9091vi, 2.5rem),
+  /* Space xl: 48px → 60px */
+  "space-xl": clamp(3rem, 2.7273rem + 1.3636vi, 3.75rem),
+  /* Space 2xl: 64px → 80px */
+  "space-2xl": clamp(4rem, 3.6364rem + 1.8182vi, 5rem),
+  /* Space 3xl: 96px → 120px */
+  "space-3xl": clamp(6rem, 5.4545rem + 2.7273vi, 7.5rem),
+);
+
+
+/* Colors */
+$primary: (
+  "green": hsl(170, 41%, 12%),
+  "yellow": hsl(46, 96%, 64%)
+);
+
+//### Neutral
+$neutral: (
+  "green-light": hsl(170, 42%, 28%),
+  "white": hsl(0, 0%, 100%),
+  "gray": hsl(0, 0%, 50%),
+);

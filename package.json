@@ -1,0 +1,21 @@
+{
+  "name": "",
+  "type": "module",
+  "version": "0.0.1",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro"
+  },
+  "dependencies": {
+    "@fontsource-variable/lora": "^5.0.17",
+    "@fontsource-variable/montserrat": "^5.0.18",
+    "astro": "^4.5.9",
+    "photoswipe": "^5.4.3",
+    "sass": "^1.72.0",
+    "scroll-padlock": "^2.4.2",
+    "swiper": "^11.1.0"
+  }
+}

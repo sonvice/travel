@@ -1,0 +1,31 @@
+@use "../01-abstracts/" as b;
+.destination {
+  &__brands {
+    padding-inline: var(--space-m);
+    @include b.breakpoint(lg) {
+      padding-inline: var(--space-xl);
+    }
+    ul {
+      border-bottom: 1px solid hsl(var(--color-grayHsl), 0.3);
+      img {
+        width: 120px;
+      }
+      @include b.breakpoint(lg) {
+        --horizontal-alignment: space-between;
+        img {
+          width: auto;
+        }
+      }
+    }
+
+    & li {
+      filter: grayscale(1);
+      opacity: 0.6;
+      transition: 0.3s ease;
+      &:hover {
+        filter: brightness();
+        opacity: 1;
+      }
+    }
+  }
+}

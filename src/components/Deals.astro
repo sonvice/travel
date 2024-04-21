@@ -1,0 +1,27 @@
+---
+import { Image } from "astro:assets";
+import Button from "./Button.astro";
+import { flightWhite,pathAirplaneLove,chicaMaleta, maletas } from "../assets";
+---
+
+<div class="deals | mt-space-3xl mb-space-xl relative p-space-l rounded">
+    <div class="deals__text d-flex relative">
+        <h3 class="fw-regular size-2">Find the 
+            best <span class="fw-bold">deals</span> </h3>
+            <Image src={pathAirplaneLove} class:list={'deals__airplane absolute'} alt="path airplane"/>
+            <Button icon={flightWhite} class:list="btn-green-light text-white" text="get tickets"/>
+    </div>
+    <div class="deals__bags | px-space-s hidden d-flex absolute">
+        <Image src={chicaMaleta} width={chicaMaleta.width / 2} class:list={'deals__girl'} alt="Chica con maleta en la mano"/>
+        <Image src={maletas} width={maletas.width / 2} class:list={'deals__bag absolute'} alt="Maletas y sobrero"/>
+    </div>
+</div>
+
+<script>
+    import { observerEl } from "../js/observer";
+    const titleFindDeals = document.querySelector('.deals__text h3')
+    const titleFindDealsBtn = document.querySelector('.deals__text .btn')
+    observerEl(titleFindDeals, 'lr-animations')
+    observerEl(titleFindDealsBtn, 'fadeInUp')
+
+</script>

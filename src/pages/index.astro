@@ -1,0 +1,40 @@
+---
+import { travelSymbol } from "../assets/";
+import Header from "../components/design/Header.astro";
+import Hero from "../components/design/Hero.astro";
+import Places from "../components/design/Places.astro";
+import Destination from "../components/design/Destination.astro";
+import Gallery from "../components/design/Gallery.astro";
+import Footer from "../components/design/Footer.astro";
+
+import "../sass/style.scss";
+---
+
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <link rel="icon" type="image/svg+xml" href={travelSymbol.src} />
+    <meta name="viewport" content="width=device-width" />
+    <meta name="generator" content={Astro.generator} />
+    <title>Travel | Landing Page</title>
+  
+  </head>
+  <body>
+    <header>
+      <Header />
+    </header>
+    <main>
+      <Hero />
+	  <Places/>
+	<Destination />
+	<Gallery />
+      <footer>
+        <Footer />
+      </footer>
+      <script>
+        // Supports weights 100-900
+        import "@fontsource-variable/montserrat";
+      </script>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,65 @@
+@use '../01-abstracts/' as f;
+
+.deals{
+    display: grid;
+    background: #FBD14C;
+    grid-template-columns: 1fr;
+    background-image: linear-gradient(90deg, rgba(251,209,76,1) 0%, rgba(251,209,76,0.5) 100%), url('../assets/destination/map.png');
+    background-position: center,  center center;
+    background-repeat: no-repeat, no-repeat;
+    @include f.breakpoint(md){
+        grid-template-columns: 1fr 1fr;
+        min-height: f.px-to-rem(360px);
+    }
+
+    &__airplane{
+        display: none;
+        left: 10rem;
+        @include f.breakpoint(sm){
+            display: block;
+            bottom: -2rem;
+        }
+        @include f.breakpoint(md){
+         
+            bottom: 4rem;
+        }
+    }
+    
+    &__text{
+        --delay:1s;
+        flex-direction: column;
+        --vertical-alignment:start;
+        --horizontal-alignment:center;
+        z-index: 1;
+        & h3{
+            max-width: 10ch;
+        }
+    }
+    &__bags{
+        display: none;
+        right:0;
+        flex-wrap: nowrap;
+        bottom: 0;
+        min-width: f.px-to-rem(600px);
+        @include f.breakpoint(md){
+            display: block;
+        }
+        @include f.breakpoint(lg){
+            display: block;
+        }
+    }
+
+    &__girl{
+        bottom: 0;
+        position: relative;
+        left: 10rem;
+        z-index: 1;
+        @include f.breakpoint(lg){
+            left: 1rem;
+        }
+    }
+    &__bag{
+        bottom: -2rem;
+        right: -5rem;
+    }
+}

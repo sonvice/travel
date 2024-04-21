@@ -1,0 +1,114 @@
+---
+import { places } from "../constants";
+import ButtonIcon from "./ButtonIcon.astro";
+import { Image } from "astro:assets";
+import {
+  arrowRight,
+  arrowLeft,
+  location,
+} from "../assets";
+---
+
+
+<div class="travel__slider | hidden">
+    <ul
+      role="list"
+      class="places__box | px-space-0 mt-space-xl swiper-wrapper"
+    >
+      {
+        places.map((item) => (
+          <li class="relative rounded hidden swiper-slide">
+            <Image
+              src={item.image}
+              alt={item.alt}
+            />
+            <div class="travel__slider-text | m-space-xs p-space-xs d-flex bg-white rounded absolute">
+              <div class="travel__slider-title d-flex">
+                <h3 class="size-0">{item.title}</h3>
+                <span class="fw-bold">${item.price}</span>
+              </div>
+              <div class="travel__slider-subtitle size--1 d-flex">
+                <small class="d-flex">
+                  <img src={location.src} width="15" alt="icon location" />
+                  {item.fullNameCity}
+                </small>
+                <small>{item.person}</small>
+              </div>
+            </div>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+  <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+  <!-- Navigation buttons -->
+  <div class="travel__buttons-slider | d-flex">
+      <ButtonIcon class:list={"button-prev border"} icon={arrowLeft} />
+      <ButtonIcon class:list={"button-next border"} icon={arrowRight} />
+  </div>
+
+
+  <script>
+    // import Swiper JS
+    import Swiper from "swiper";
+    import {  Pagination } from 'swiper/modules';
+    // import Swiper styles
+    import "swiper/css/bundle"
+    
+    document.addEventListener('DOMContentLoaded', function() {
+      const swiper = new Swiper(".travel__slider", {
+         // configure Swiper to use modules
+        modules: [ Pagination],
+        // Otras opciones de configuración...
+        loop: true,
+        grabCursor: true,
+        // Navigation arrows
+        navigation: {
+          nextEl: ".places-button-next",
+          prevEl: ".places-button-prev",
+        },
+        pagination:{
+          el:'.swiper-pagination',
+          clickable: true,
+          type: 'bullets',
+        },
+    
+        slidesPerView: 1,
+        spaceBetween: 10,
+        // Responsive breakpoints
+        breakpoints: {
+          // when window width is >= 320px
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          // when window width is >= 480px
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          // when window width is >= 640px
+          1024: {
+            slidesPerView: 4,
+            spaceBetween: 20,
+            
+          },
+        },
+      });
+      const prevButton = document.querySelector(".button-prev");
+      const nextButton = document.querySelector(".button-next");
+    
+      swiper.on('slideChange', function () {
+      });
+    
+      prevButton.addEventListener("click", () => {
+        swiper.slidePrev();
+      });
+    
+      nextButton.addEventListener("click", () => {
+        swiper.slideNext();
+      });
+    });
+    
+    </script>

@@ -1,0 +1,57 @@
+---
+import Logo from "../../assets/svg/Logo.astro";
+import { social,footerLink1, footerLink2,contact } from "../../constants";
+---
+
+<div class="footer">
+  <div class="container text-white">
+    <div class="footer__box | bg-green rounded p-space-l">
+      <div class="d-flex pb-space-l">
+        <div class="footer__logo">
+          <Logo color="var(--color-white)" />
+          <p class="size--1 mt-space-s">The purpose of lorem ipsum is to create a natural looking block.</p>
+          <ul role="list"  class="footer__social | mt-space-l mb-space-0 d-flex p-space-0">
+            {
+              social.map((item) => (
+                <li>
+                  <img src={item.icon.src} width={item.icon.width} alt={item.alt} />
+                </li>
+              ))
+            }
+          </ul>
+  
+        </div>
+        <ul role="list" class="footer__links | my-space-0 mr-space-auto d-flex">
+          <li class="footer__links1">
+  
+              <h3 class="size-0 mb-space-m">Quick Link</h3>
+              <ul role="list" class="flow">
+                  {footerLink1.map((item) =>( 
+                      <li> <a class="text-white size--1 decoration" href={`#${item}`}>{item}</a> </li>
+                  ))}
+              </ul>
+            </li>
+          <li class="footer__links2">
+              <h3 class="size-0 mb-space-m">Quick Link</h3>
+              <ul role="list" class="flow">
+                  {footerLink2.map((item) =>( 
+                      <li> <a class="text-white size--1 decoration" href={`#${item}`}>{item}</a> </li>
+                  ))}
+              </ul>
+          </li>
+          <li class="footer__contact">
+              <h3 class="size-0 mb-space-m">Quick Link</h3>
+              <ul role="list" class="flow">
+                  {contact.map((item) =>( 
+                      <li> <a class="text-white size--1 decoration" href={`#${item}`}>{item}</a> </li>
+                  ))}
+              </ul>
+          </li>
+        </ul>
+      </div>
+      <div class="footer__copy size--2 pt-space-l">
+        2024 &#169; <span class="fw-bold">Travel</span> | All Right Reserved
+      </div>
+    </div>
+  </div>
+</div>

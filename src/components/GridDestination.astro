@@ -1,0 +1,26 @@
+---
+import { Image } from "astro:assets";
+import { destination } from "../constants";
+---
+
+<ul role="list" class="grid-destination p-space-0">
+    {
+      destination.map((item) => (
+        <li class="grid-destination__item | relative rounded hidden">
+          <Image src={item.image} width={item.image.width } alt={item.name} />
+       
+            <span class="grid-destination__rank | shadow d-flex m-space-xs p-space-3xs fw-bold rounded bg-white  absolute">
+              <img src={item.star.src} alt="Icon start" />
+              {item.rank}
+            </span>
+            <div class="grid-destination__text | text-white absolute m-space-xs">
+              <h3 class="size-2">
+                {item.name}
+                <p class="fw-regular mt-space-2xs size-0">{item.starting}</p>
+              </h3>
+            </div>
+           
+        </li>
+      ))
+    }
+  </ul>

@@ -1,0 +1,8 @@
+---
+const { text,icon, class: clasName } = Astro.props;
+---
+
+<button
+  class=`btn | text-green px-space-xs py-space-xs ${clasName} rounded size--1 d-flex`
+  >{text} <img src={icon.src} width="20" alt="arrow" /></button
+>

@@ -1,0 +1,23 @@
+---
+import { Image } from "astro:assets";
+import { brands } from "../../constants";
+import Deals from '../Deals.astro';
+import GridDestination from "../GridDestination.astro";
+---
+
+<section class="destination pt-space-3xl" id="destination">
+  <div class="container hidden">
+    <h2 class="mb-space-xl">popular destination</h2>
+    <GridDestination/>
+    <Deals/>
+    <div class="destination__brands | mb-space-xl">
+        <ul role="list" class="pl-space-0 pb-space-s d-flex">
+            {brands.map((item)=>( 
+                <li>
+                    <Image src={item.brand} alt={item.alt}/>
+                    </li>
+            ))}
+        </ul>
+    </div>
+  </div>
+</section>

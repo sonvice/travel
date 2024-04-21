@@ -1,0 +1,21 @@
+
+@use '../01-abstracts/' as colors;
+
+@each $class-name, $value in colors.$primary {
+    //Background
+    .bg-#{$class-name} {
+      background-color: $value;
+    }
+    .text-#{$class-name} {
+      color: $value;
+    }
+  }
+  @each $class-name, $value in colors.$neutral {
+    //Background
+    .bg-#{$class-name} {
+      background-color: $value;
+    }
+    .text-#{$class-name} {
+      color: $value;
+    }
+  }

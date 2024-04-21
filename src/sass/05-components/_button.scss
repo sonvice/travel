@@ -1,0 +1,24 @@
+.btn{
+    --gutter: var(--space-2xs);
+    font-weight: var(--fw-bold);
+    cursor: pointer;
+
+    &:active{
+        transform: scale(0.98);
+    }
+}
+
+.btn-yellow{
+    background-color: var(--color-yellow);
+    &:hover{
+        background-color: hsl(var(--color-yellowHsl), .8);
+    }
+}
+
+.btn-green-light{
+    background-color: var(--color-greenLight);
+    &:hover{
+        background-color: hsl(var(--color-greenLightHsl), .9);
+    }
+
+}

@@ -1,0 +1,79 @@
+@use '../01-abstracts/' as b;
+.grid-destination{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(4,300px);
+    gap: var(--space-s);
+    grid-template-areas: 
+    "londres londres" 
+    "paris paris" 
+    "dubai dubai"
+    "venezia venezia";
+
+
+    @include b.breakpoint(md){
+        padding-bottom: var(--space-l);
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-rows: min-content;
+        grid-template-areas: "londres londres paris" 
+        "dubai venezia venezia";
+    }
+    &>:nth-child(1){
+        grid-area: londres;
+    }
+    &>:nth-child(2){
+        grid-area: paris;
+    }
+    &>:nth-child(3){
+        grid-area: dubai;
+    }
+    &>:nth-child(4){
+        grid-area: venezia;
+    }
+
+    &__item{
+        img{
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+        }
+
+        &::after{
+            content: '';
+            background: linear-gradient(to bottom, rgba(252, 252, 252, 0) 0%, rgba(18, 43, 39, 0.8) 100%);
+            inset: 0;
+            z-index: 1;
+            position: absolute;
+            opacity: 0;
+            transition: .2s ease;
+            
+        }
+
+        &:hover .grid-destination__text{
+            transform: translateY(0);
+        }
+        &:hover::after{
+            opacity: 1;
+        }
+    }
+
+    &__rank{
+        top: 0;
+        right: 0;
+        --gutter:var(--space-3xs);
+        z-index: 5;
+    }
+
+    &__text {
+        bottom: 0;
+        z-index: 1;
+        left: 0;
+        z-index: 5;
+        transform: translateY(6rem);
+        transition: .3s ease;
+        & p{
+            font-family: var(--ff-montserrat);
+        }
+    }
+}
+

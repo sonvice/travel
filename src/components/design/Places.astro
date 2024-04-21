@@ -1,0 +1,68 @@
+---
+import { Image } from "astro:assets";
+
+import {
+  nubes,
+  pathAirplane,
+  viajera,
+} from "../../assets";
+import { incluse } from "../../constants";
+import Slider from "../Slider.astro";
+---
+
+<section class="places | pt-space-3xl" id="places">
+  <div class="container relative">
+    <h2>popular places</h2>
+
+    <Slider/>
+
+    <div class="places__explore | py-space-3xl">
+      <div class="places__explore-img | relative">
+        <Image
+          src={viajera}
+          width={viajera.width / 2}
+          alt="Chica viajera"
+        />
+        <Image src={nubes} width={nubes.width / 2} alt="Nubes" class:list={'places__nubes absolute'} />
+      </div>
+      <div class="places__explore-text | relative">
+        <Image src={pathAirplane} class:list={'absolute'} alt="Path air plane" />
+        <div class="flow mt-space-m">
+          <h2 class="places__title">Explore all corners of The world with us</h2>
+          <p>
+            The purpose of lorem ipsum is to create a natural looking block of
+            text (sentence, paragraph, page, etc.) that doesn't distract from
+            the layout.
+          </p>
+          <ul role="list" class="p-space-0 d-flex">
+            {
+              incluse.map((item) => (
+                <li class="fw-bold size--1 text-center">
+                  
+                  <Image src={item.icon} alt={item.name} />
+                  <span class="mt-space-2xs d-block">{item.name}</span>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+  import { observerEl } from "../../js/observer";
+  const title = document.querySelector('.places__explore-text h2')
+  const paragraph = document.querySelector('.places__explore-text p')
+  const listIcon = document.querySelector('.places__explore-text ul')
+
+  observerEl(title, 'fadeInUp')
+  observerEl(paragraph, 'fadeInUp')
+  observerEl(listIcon, 'fadeIn')
+
+
+</script>
+
+

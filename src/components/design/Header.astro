@@ -1,0 +1,82 @@
+---
+import Logo from "../../assets/svg/Logo.astro";
+import { navigation } from "../../constants";
+import { burger } from "../../assets";
+import ButtonSm from "../ButtonSm.astro";
+---
+
+<div class="header | py-space-s">
+  <div class="container">
+    <div class="header__box d-flex">
+      <Logo color="var(--color-green)" />
+      <nav class="header__nav | capitalize d-flex">
+        {
+          navigation.map((item) => (
+            <a href={item.url} class={`d-flex rounded ${item.active ? 'active' : ''} py-space-2xs px-space-xs text-green`}>
+              {item.title}
+            </a>
+          ))
+        }
+      </nav>
+      <div class="header__login">
+        <a href="#login">Login</a>
+        <ButtonSm Bgcolor="bg-yellow" text="sign up" />
+      </div>
+      <div class="header__burger p-space-2xs">
+        <img src={burger.src} width={burger.width} alt="" />
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  import { close, burger } from "../../assets";
+
+  const burgerMenu = document.querySelector(".header__burger");
+  const nav = document.querySelector(".header__nav");
+  const navItems = document.querySelectorAll(".header__nav a");
+  const icon = burgerMenu.querySelector("img");
+
+  const toggleNav = () => {
+    nav.classList.toggle("open");
+    icon.src = nav.classList.contains("open") ? close.src : burger.src;
+    document.scrollingElement.classList.toggle(
+      "scroll-padlock-locked",
+    );
+  };
+
+  const closeNav = () => {
+    nav.classList.remove("open");
+    icon.src = burger.src;
+    document.scrollingElement.classList.remove("scroll-padlock-locked");
+  };
+
+  const toggleActiveClass = (clickItem)=>{
+    navItems.forEach((item)=>{
+        if(item !== clickItem){
+            item.classList.remove('active')
+        }
+    });
+    clickItem.classList.toggle('active');
+}
+
+  burgerMenu.addEventListener("click", toggleNav);
+
+  //Nav items
+  navItems.forEach((item) => {
+    item.addEventListener("click", (e) => {
+      closeNav();
+      toggleActiveClass(item);
+    });
+  });
+
+  //Header shadow
+  const header = document.querySelector(".header");
+  window.addEventListener("scroll", (e) => {
+    if (window.scrollY > 100) {
+      //header.classList.add("shadow-sm", "py-space-m");
+    } else {
+      //header.classList.remove("shadow-sm", "py-space-m");
+    }
+  });
+</script>

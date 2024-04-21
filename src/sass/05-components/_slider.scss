@@ -1,0 +1,37 @@
+@use '../01-abstracts/' as b;
+.travel{
+    &__slider{
+        position: relative;
+    }
+    &__box{
+         li{
+            img{
+            
+                width: 100%;
+            }
+        }
+    }
+    &__buttons-slider{
+        position: absolute;
+        right: 1.75rem;
+        top: 0;
+        display: none;
+        @include b.breakpoint(sm){
+            display: flex;
+        }
+    }
+    &__slider-text{
+        bottom: 0;
+    }
+    &__slider-title{
+        flex-wrap: nowrap;
+        --horizontal-alignment:space-between;
+        flex-grow: 1;
+    }
+
+    &__slider-subtitle{
+        flex-grow: 1;
+        --horizontal-alignment:space-between;
+        --gutter:var(--space-2xs);
+    }
+}
